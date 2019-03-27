@@ -39,8 +39,12 @@ namespace ProjetoFolhadePagamento
                     case 2:
                         CadastrarFuncionario.Renderizar();
                         break;
+                    case 3:
+                        CadastrarFolhaPagamento.Renderizar();
+                        break;
 
                     default:
+                        Console.WriteLine("Digite uma opcao valida");
                         break;
                 }
 
