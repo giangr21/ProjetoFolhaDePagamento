@@ -21,7 +21,7 @@ namespace ProjetoFolhadePagamento.View
             f.cpf = Console.ReadLine();
             if (Validar.ValidarCpf(f.cpf))
             {
-                Console.WriteLine("Digite a data de nascimento do Funcionario:");
+                Console.WriteLine("Digite a data de nascimento do Funcionario: (dd/mm/yyyy)");
                 f.DataNasc = DateTime.Parse(Console.ReadLine());
 
                 if (FuncionarioDAO.CadastrarFuncionario(f))

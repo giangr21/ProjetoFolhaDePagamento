@@ -5,9 +5,9 @@ using ProjetoFolhadePagamento.Model;
 
 namespace ProjetoFolhadePagamento.View
 {
-     class CadastrarFolhaPagamento
+    class CadastrarFolhaPagamento
     {
-       
+
 
         public static void Renderizar()
         {
@@ -21,13 +21,13 @@ namespace ProjetoFolhadePagamento.View
             f.cpf = Console.ReadLine();
             f = FuncionarioDAO.BuscarFuncionarioCpf(f);
             if (f != null)
-                {
+            {
                 fp.Funcionario = f;
                 Console.WriteLine("Digite o cargo do Funcionario");
                 c.nomeCargo = Console.ReadLine();
                 c = CargoDAO.BuscarCargoNome(c);
                 if (c != null)
-                    {
+                {
                     fp.Cargo = c;
                     Console.WriteLine("Digite o mes e o ano da folha de pagamento");
                     fp.MesAno = Convert.ToDateTime("21/08");
@@ -35,26 +35,21 @@ namespace ProjetoFolhadePagamento.View
                     fp.HorasTrabalhadas = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Digite o valor da hora");
                     fp.ValorHora = Convert.ToDouble(Console.ReadLine());
-                    FolhaPagamentoDAO.CadastrarFolhaPagamento(fp);
-
-
-                    foreach (FolhaDePagamento folhapagamento in folhaPagamentos)
+                    if (FolhaPagamentoDAO.CadastrarFolhaPagamento(fp))
                     {
-                        Console.WriteLine(folhapagamento);
+                        Console.WriteLine("Folha de pagamento cadastrada com sucesso");
+                    }else
+                    {
+                        Console.WriteLine("Folha de pagamento ja cadastrada");
                     }
-
                 }
                 else
                 {
-                    Console.WriteLine("Cargo do funcionario invalido");
+                    Console.WriteLine("CPF do funcionario invalido");
                 }
-            }
-            else
-            {
-                Console.WriteLine("CPF do funcionario invalido");
-            }
 
 
+            }
         }
     }
 }

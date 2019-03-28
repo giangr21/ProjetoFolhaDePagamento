@@ -8,15 +8,33 @@ namespace ProjetoFolhadePagamento.DAL
     {
         private static List<FolhaDePagamento> folhaPagamentos = new List<FolhaDePagamento>();
 
-        public static void CadastrarFolhaPagamento(FolhaDePagamento fp)
+        public static bool CadastrarFolhaPagamento(FolhaDePagamento fp)
         {
-
-            folhaPagamentos.Add(fp);
+            if (BuscarFolhaPorFuncionarioData(fp) == null)
+            {
+                folhaPagamentos.Add(fp);
+                return true;
+            }
+            return false;
         }
         public static List<FolhaDePagamento> RetonarFuncionarios()
         {
             return folhaPagamentos;
         }
 
+
+        public static FolhaDePagamento BuscarFolhaPorFuncionarioData(FolhaDePagamento fp)
+        {
+
+            foreach (FolhaDePagamento folhaCadastrada in folhaPagamentos)
+            {
+                if (folhaCadastrada.Funcionario.cpf.Equals(fp.Funcionario.cpf) && folhaCadastrada.MesAno.Month == fp.MesAno.Month && folhaCadastrada.MesAno.Year == fp.MesAno.Year)
+                {
+                    return folhaCadastrada;
+                }
+
+            }
+            return null;
+        }
     }
 }
