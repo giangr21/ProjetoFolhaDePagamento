@@ -43,6 +43,10 @@ namespace ProjetoFolhadePagamento
                         CadastrarFolhaPagamento.Renderizar();
                         break;
                     case 4:
+                        ConsultarFolhaDePagamento.Renderizar();
+                        break;
+                    case 5:
+                        ConsultarFolhaDePagamento.Renderizar2();
                         break;
 
                     default:

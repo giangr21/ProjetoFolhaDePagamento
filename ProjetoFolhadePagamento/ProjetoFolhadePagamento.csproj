@@ -47,9 +47,11 @@
     <Compile Include="DAL\FuncionarioDAO.cs" />
     <Compile Include="Model\Cargo.cs" />
     <Compile Include="Model\Funcionario.cs" />
+    <Compile Include="Utils\Calculos.cs" />
     <Compile Include="Utils\Validar.cs" />
     <Compile Include="View\CadastrarCargo.cs" />
     <Compile Include="View\CadastrarFuncionario.cs" />
+    <Compile Include="View\ConsultarFolhaDePagamento.cs" />
     <Compile Include="View\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\FolhaDePagamento.cs" />

@@ -30,7 +30,7 @@ namespace ProjetoFolhadePagamento.View
                 {
                     fp.Cargo = c;
                     Console.WriteLine("Digite o mes e o ano da folha de pagamento");
-                    fp.MesAno = Convert.ToDateTime("21/08");
+                    fp.MesAno = Convert.ToDateTime("01/10/2018");
                     Console.WriteLine("Digite o numero de horas trabalhadas");
                     fp.HorasTrabalhadas = Convert.ToInt32(Console.ReadLine());
                     Console.WriteLine("Digite o valor da hora");
