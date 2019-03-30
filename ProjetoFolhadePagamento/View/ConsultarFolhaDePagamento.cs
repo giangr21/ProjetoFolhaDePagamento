@@ -12,7 +12,8 @@ namespace ProjetoFolhadePagamento.View
     class ConsultarFolhaDePagamento
     {
         public static void Renderizar()
-        {
+        {   
+            Cargo c = new Cargo();
             Funcionario f = new Funcionario();
             FolhaDePagamento fp = new FolhaDePagamento();
             Console.WriteLine("Digite o cpf do funcionario");
@@ -25,12 +26,22 @@ namespace ProjetoFolhadePagamento.View
                 Console.WriteLine("Digite o mes e o ano");
                 fp.MesAno = Convert.ToDateTime(Console.ReadLine());
                 fp = FolhaPagamentoDAO.BuscarFolhaPorFuncionarioData(fp);
-                Calculos cl = new Calculos();
+               // Calculos cl = new Calculos();
                 if (fp != null)
-            
                 {
-                    
-                    Calculos.Calcular(fp);
+
+                    Console.Write("Horas trabalhadas: " + fp.HorasTrabalhadas + " Valor hora: " + fp.ValorHora + " Bonus: " + c.bonus);
+                    Console.WriteLine (Calculos.CalcularSalarioBruto(fp.HorasTrabalhadas, fp.ValorHora, c.bonus));
+                    Console.WriteLine (Calculos.CalcularImpostoRenda(fp.HorasTrabalhadas, fp.ValorHora, c.bonus));
+                    Console.WriteLine (Calculos.CalcularINSS(fp.HorasTrabalhadas, fp.ValorHora, c.bonus));
+                    Console.WriteLine (Calculos.CalcularFGTS(fp.HorasTrabalhadas, fp.ValorHora, c.bonus));
+
+                    // falta calcular o salario liquido, mas isso calcula aqui, nao precisa fazer metod //
+
+
+
+
+
                 }
                 else
                 {

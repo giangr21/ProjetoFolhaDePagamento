@@ -13,7 +13,6 @@ namespace ProjetoFolhadePagamento.View
         {
 
 
-            List<FolhaDePagamento> folhaPagamentos = FolhaPagamentoDAO.RetonarFuncionarios();
             FolhaDePagamento fp = new FolhaDePagamento();
             Funcionario f = new Funcionario();
             Cargo c = new Cargo();
@@ -45,10 +44,12 @@ namespace ProjetoFolhadePagamento.View
                 }
                 else
                 {
-                    Console.WriteLine("CPF do funcionario invalido");
+                    Console.WriteLine("Cargo do funcionario invalido");
                 }
-
-
+            }
+            else
+            {
+                Console.WriteLine("CPF do funcionario invalido");
             }
         }
     }
