@@ -14,6 +14,11 @@ namespace ProjetoFolhadePagamento.Utils
             return Convert.ToDouble((horas) * precohora) + bonus;
         }
 
+        public static double Bonus(int horas, double precohora, double bonus)
+        {
+            return ((bonus / 100) * (horas * precohora));
+        }
+
         public static double CalcularImpostoRenda(int horas, double precohora, double bonus)
         {
             double x = 0;
@@ -72,6 +77,7 @@ namespace ProjetoFolhadePagamento.Utils
             x = Convert.ToDouble((horas) * precohora) + bonus;
             return x * 0.08;
         }
+
 
     }   
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ProjetoFolhadePagamento.Model;
 
 namespace ProjetoFolhadePagamento.DAL
@@ -17,11 +18,6 @@ namespace ProjetoFolhadePagamento.DAL
             }
             return false;
         }
-        public static List<FolhaDePagamento> RetonarFuncionarios()
-        {
-            return folhaPagamentos;
-        }
-
 
         public static FolhaDePagamento BuscarFolhaPorFuncionarioData(FolhaDePagamento fp)
         {
@@ -35,6 +31,33 @@ namespace ProjetoFolhadePagamento.DAL
 
             }
             return null;
+        }
+
+        public static List<FolhaDePagamento> BuscarFolhaPorCpf(string cpf)
+        {
+            List<FolhaDePagamento> auxFolha = new List<FolhaDePagamento>();
+            foreach (FolhaDePagamento folhacadastr in folhaPagamentos)
+            {
+                if (folhacadastr.Funcionario.cpf.Equals(cpf))
+                {
+                    auxFolha.Add(folhacadastr);
+                }
+            }
+            return auxFolha.OrderBy(x => x.MesAno).ToList();
+        }
+
+        public static List<FolhaDePagamento> BuscarFolhaPorMesAno(string mes, string ano)
+        {
+            List<FolhaDePagamento> auxFolha = new List<FolhaDePagamento>();
+            foreach (FolhaDePagamento folhacadastr in folhaPagamentos)
+            {
+                if (Convert.ToString(folhacadastr.MesAno.Month).Equals(mes) &&
+                    Convert.ToString(folhacadastr.MesAno.Year).Equals(ano))
+                {
+                    auxFolha.Add(folhacadastr);
+                }
+            }
+            return auxFolha;
         }
     }
 }

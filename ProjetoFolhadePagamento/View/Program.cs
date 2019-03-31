@@ -48,6 +48,12 @@ namespace ProjetoFolhadePagamento
                     case 5:
                         ConsultarFolhaDePagamento.Renderizar2();
                         break;
+                    case 6:
+                        ConsultarFolhaDePagamento.Renderizar3();
+                        break;
+                    case 0:
+                        Console.WriteLine("Saindoo....");
+                        break;
 
                     default:
                         Console.WriteLine("Digite uma opcao valida");
